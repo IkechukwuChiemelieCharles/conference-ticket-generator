@@ -76,6 +76,7 @@ const Form = ({
           )}
         </div>
         <span className="info">
+          <img src="public/assets/images/icon-upload.svg" alt="" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
