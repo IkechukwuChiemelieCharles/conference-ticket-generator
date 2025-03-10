@@ -33,7 +33,7 @@ const Display = ({
           <div className="name">
             <h2>{fname}</h2>
             <p>
-              <img src="../public/assets/images/icon-github.svg" alt="" />{" "}
+              <img src="\assets\images\icon-github.svg" alt="" />{" "}
               {github}
             </p>
           </div>
