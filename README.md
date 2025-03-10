@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL]: (https://github.com/IkechukwuChiemelieCharles/conference-ticket-generator.git)
-- [Live Site UR]: (https://conference-ticket-generator-teal-seven.vercel.app/)
+- [Solution] (https://github.com/IkechukwuChiemelieCharles/conference-ticket-generator.git)
+- [LiveSite] (https://conference-ticket-generator-teal-seven.vercel.app/)
 
 ## My process
 
@@ -55,6 +55,8 @@ Users should be able to:
 I used this project to solidify my knowldedge on fundamental concepts of React
 
 ## Author
+
+IKECHUKWU CHIEMELIE CHARLES
 
 - [Portfolio](https://charlie-x.vercel.app/)
 - Frontend Mentor - [@IkechukwuChiemelieCharles
