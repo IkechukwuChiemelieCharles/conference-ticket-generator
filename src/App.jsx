@@ -1,66 +1,16 @@
 import { useState } from "react";
-import Steps from "./components/Steps";
-import Accordion from "./components/Accordion";
-import Bill from "./components/TipCalc/Bill";
-import PercentageInput from "./components/TipCalc/PercentageInput";
-import Total from "./components/TipCalc/Total";
-import Reset from "./components/TipCalc/Reset";
 
 import Header from "./components/conference/Header";
 import Form from "./components/conference/Form";
 import Display from "./components/conference/Display";
 import Logo from "./components/conference/Logo";
 
-const questions = [
-  {
-    id: 3457,
-    question: "What language is React based on?",
-    answer: "JavaScript",
-  },
-  {
-    id: 7336,
-    question: "What are the building blocks of React apps?",
-    answer: "Components",
-  },
-  {
-    id: 8832,
-    question: "What's the name of the syntax we use to describe a UI in React?",
-    answer: "JSX",
-  },
-  {
-    id: 1297,
-    question: "How to pass data from parent to child components?",
-    answer: "Props",
-  },
-  {
-    id: 9103,
-    question: "How to give components memory?",
-    answer: "useState hook",
-  },
-  {
-    id: 2002,
-    question:
-      "What do we call an input element that is completely synchronised with state?",
-    answer: "Controlled element",
-  },
-];
-
 export default function App() {
-  const [bill, setBill] = useState("");
-  const [perc, setPerc] = useState(0);
-  const [secperc, setSecPerc] = useState(0);
-
-  const tip = bill * ((perc + secperc) / 2 / 100);
-
-  function handleReset() {
-    setBill("");
-    setPerc(0);
-    setSecPerc(0);
-  }
-
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
   const [emailErr, setEmailErr] = useState(false);
+  const [nameErr, setNameErr] = useState(false);
+  const [gitErr, setGitErr] = useState(false);
   const [github, setGithub] = useState("");
   const [openDisplay, setOpenDisplay] = useState(null);
   const [selectedFile, setSelectedFile] = useState("");
@@ -91,24 +41,41 @@ export default function App() {
   function handleSubmit(e) {
     if (!validateEmail(email)) {
       setEmailErr(true);
+      // setGitErr(true);
+      // setNameErr(true);
+
       setShowContainer(showContainer);
       setOpenDisplay(openDisplay);
       console.log("true");
     } else {
       setEmailErr(false);
-      console.log("false");
+
       setShowContainer(!showContainer);
       setOpenDisplay(!openDisplay);
       // setShowContainer(null);
+    }
+    if (github == "") {
+      setGitErr(true);
+      setShowContainer(showContainer);
+      setOpenDisplay(openDisplay);
+    }
+    if (fname == "") {
+      setNameErr(true);
+      setShowContainer(showContainer);
+      setOpenDisplay(openDisplay);
+    }
+
+    if (!imageUrl) {
+      setError("Required: Upload your photo (JPG or PNG, max size: 500KB)");
+      setShowContainer(showContainer);
+      setOpenDisplay(openDisplay);
     }
   }
 
   function handleImgChange(event) {
     event.preventDefault();
-    // setSelectedFile(e.target.files[0]);
-    const file = event.target.files[0];
 
-    // setImageUrl(URL.createObjectURL(event.target.files[0]));
+    const file = event.target.files[0];
 
     if (file && validateFile(file)) {
       const url = URL.createObjectURL(file);
@@ -131,6 +98,8 @@ export default function App() {
 
   const validateFile = (file) => {
     if (!file) return false;
+
+    // if (file.)
 
     const validTypes = ["image/jpeg", "image/png"];
 
@@ -166,6 +135,8 @@ export default function App() {
             setFname={setFname}
             setEmail={setEmail}
             emailErr={emailErr}
+            nameErr={nameErr}
+            gitErr={gitErr}
             setGithub={setGithub}
             createTicket={createTicket}
             selectedFile={selectedFile}
@@ -192,114 +163,18 @@ export default function App() {
           imageUrl={imageUrl}
         />
       )}
-      {/* <Bill bill={bill} setBill={setBill} />
-      <PercentageInput perc={perc} setPerc={setPerc}>
-        How do you like the service{" "}
-      </PercentageInput>
-      <PercentageInput perc={secperc} setPerc={setSecPerc}>
-        How did your friend like the service{" "}
-      </PercentageInput>
-      {bill > 0 ? (
-        <>
-          {" "}
-          <Total bill={bill} perc={perc} secperc={secperc} tip={tip} />{" "}
-          <Reset onClick={handleReset} />{" "}
-        </>
-      ) : (
-        ""
-      )} */}
-    </div>
-  );
-}
 
-function Counter() {
-  const [step, setStep] = useState(1);
-  const [count, setCount] = useState(0);
-
-  // const [ranger, setRanger] = useState("");
-
-  // const date = new Date("june 21 2027");
-
-  Date.prototype.addDays = function (days) {
-    let date = new Date(this.valueOf());
-
-    date.setDate(date.getDate() + days);
-    return date;
-  };
-
-  let date = new Date();
-  console.log(date);
-
-  function handleReset() {
-    setStep(1);
-    setCount(0);
-  }
-
-  return (
-    <div>
-      <div>
-        <input
-          type="range"
-          min="0"
-          max="10"
-          value={step}
-          onChange={(e) => setStep(Number(e.target.value))}
-        />
-        <span>Step: {step}</span>
-
-        {/* <button onClick={() => setStep((s) => s - 1)}>-</button>
-        <span>Step: {step}</span>
-        <button onClick={() => setStep((s) => s + 1)}>+</button> */}
-        <br />
-
-        <button onClick={() => setCount((s) => s - step)}>-</button>
-        <input
-          type="text"
-          value={count}
-          onChange={(e) => setCount(Number(e.target.value))}
-        />
-        <button onClick={() => setCount((s) => s + step)}>+</button>
-
-        <p>
-          {count === 0
-            ? `Today is ${date.addDays(count)}`
-            : count < 0
-            ? `${count} days ago was ${date.addDays(count)}`
-            : `${Number(count)} days from now is ${date.addDays(count)}`}{" "}
-        </p>
-
-        {count !== 0 || step !== 1 ? (
-          <button onClick={handleReset}>Reset</button>
-        ) : null}
+      <div class="attribution">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a href="https://www.frontendmentor.io/profile/IkechukwuChiemelieCharles">
+          Charlie X
+        </a>
+        .
       </div>
     </div>
   );
 }
-
-function FlashCards() {
-  const [secid, setSecid] = useState(null);
-
-  function handleFlash(id) {
-    setSecid(id !== secid ? id : null);
-  }
-  return (
-    <div className="flashcards">
-      {questions.map((question) => (
-        <div
-          onClick={() => handleFlash(question.id)}
-          className={question.id === secid ? "selected" : ""}
-        >
-          <p>{question.id === secid ? question.answer : question.question} </p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// function Card({ quest }) {
-//   return (
-//     <div>
-//       <p>{quest.question}</p>{" "}
-//     </div>
-//   );
-// }

@@ -9,6 +9,7 @@ const Inputs = ({
   init,
   setInit,
   placeholder,
+  style,
 }) => {
   return (
     <div className="inputs">
@@ -18,6 +19,7 @@ const Inputs = ({
         value={init}
         onChange={(e) => setInit(e.target.value)}
         placeholder={placeholder}
+        style={style}
       />
     </div>
   );

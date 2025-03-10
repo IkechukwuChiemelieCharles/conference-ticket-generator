@@ -17,6 +17,8 @@ const Form = ({
   validateEmail,
   handleChange,
   emailErr,
+  nameErr,
+  gitErr,
   setEmailErr,
   handleSubmit,
   removeImg,
@@ -39,6 +41,9 @@ const Form = ({
           className="uploadArea"
           onDragOver={handleDragOver}
           onDrop={handleDrop}
+          style={{
+            border: error ? "1px dashed hsl(7, 71%, 60%)" : "",
+          }}
         >
           {imageUrl === null ? (
             <div className="uploadCont">
@@ -134,10 +139,48 @@ const Form = ({
         }
       </div>
 
-      <Inputs type="text" init={fname} setInit={setFname}>
-        {" "}
-        Full Name
-      </Inputs>
+      <div className="emailInput">
+        <Inputs
+          type="text"
+          init={fname}
+          setInit={setFname}
+          placeholder="Your Full Name"
+          style={{
+            border: nameErr ? "1px solid hsl(7, 71%, 60%)" : "",
+          }}
+        >
+          {" "}
+          Full Name
+        </Inputs>
+
+        {nameErr && (
+          <span className="emailErr">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke="hsl(7, 71%, 60%)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke="hsl(7, 71%, 60%)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>{" "}
+            Please enter your full name
+          </span>
+        )}
+      </div>
+
       {/* <Inputs
         type="email"
         init={email}
@@ -188,15 +231,48 @@ const Form = ({
           </span>
         )}
       </div>
-      <Inputs
-        type="text"
-        init={github}
-        setInit={setGithub}
-        placeholder="@yourusername"
-      >
-        {" "}
-        GitHub Username
-      </Inputs>
+
+      <div className="emailInput">
+        <Inputs
+          type="text"
+          init={github}
+          setInit={setGithub}
+          placeholder="@yourusername"
+          style={{
+            border: emailErr ? "1px solid hsl(7, 71%, 60%)" : "",
+          }}
+        >
+          {" "}
+          GitHub Username
+        </Inputs>
+        {gitErr && (
+          <span className="emailErr">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke="hsl(7, 71%, 60%)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke="hsl(7, 71%, 60%)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>{" "}
+            Github Axxount ID is required
+          </span>
+        )}
+      </div>
+
       <button
         className="generate"
         onClick={(e) => {
@@ -204,6 +280,7 @@ const Form = ({
           createTicket();
           // validateEmailOnclick();
           handleSubmit();
+          validateFile();
         }}
       >
         Generate My Ticket
