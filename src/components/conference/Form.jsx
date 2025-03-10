@@ -35,7 +35,7 @@ const Form = ({
             <div className="uploadCont">
               <div className="iconCont">
                 <label htmlFor="fileInput">
-                  <img src="./public/assets/images/icon-upload.svg" alt="" />
+                  <img src="public/assets/images/icon-upload.svg" alt="" />
                 </label>
               </div>
 
