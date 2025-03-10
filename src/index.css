@@ -27,7 +27,7 @@ body {
 
 @font-face {
   font-family: "MyCustomFont"; /* Choose a name */
-  src: url("../public/assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
+  src: url("./components/conference/assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
     format("opentype"); /* Correct format */
   font-weight: normal;
   font-style: normal;
@@ -47,11 +47,11 @@ body {
   justify-content: start;
   align-items: center;
   background-color: var(--Neutral900);
-  background-image: url(../public/assets/images/pattern-lines.svg),
-    url(../public/assets/images/pattern-circle.svg),
-    url(../public/assets/images/pattern-squiggly-line-top.svg),
-    url(../public/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg),
-    url(../public/assets/images/background-mobile.png);
+  background-image: url(./components/conference/assets/images/pattern-lines.svg),
+    url(./components/conference/assets/images/pattern-circle.svg),
+    url(./components/conference/assets/images/pattern-squiggly-line-top.svg),
+    url(./components/conference/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg),
+    url(./components/conference/assets/images/background-mobile.png);
   background-position: top, top left, top right, bottom left, right bottom;
   background-size: cover, 14rem, 12rem, 30rem;
   background-repeat: no-repeat;
@@ -270,7 +270,7 @@ input::placeholder {
 }
 
 .img {
-  background-image: url(../public/assets/images/pattern-ticket.svg);
+  background-image: url(./components/conference/assets/images/pattern-ticket.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -377,11 +377,11 @@ input::placeholder {
   }
 
   .container {
-    background-image: url(../public/assets/images/pattern-lines.svg),
-      url(../public/assets/images/pattern-circle.svg),
-      url(../public/assets/images/pattern-squiggly-line-top.svg),
-      url(../public/assets/images/pattern-squiggly-line-bottom-desktop.svg),
-      url(../public/assets/images/background-desktop.png);
+    background-image: url(./components/conference/assets/images/pattern-lines.svg),
+      url(./components/conference/assets/images/pattern-circle.svg),
+      url(./components/conference/assets/images/pattern-squiggly-line-top.svg),
+      url(./components/conference/assets/images/pattern-squiggly-line-bottom-desktop.svg),
+      url(./components/conference/assets/images/background-desktop.png);
     background-position: top, top left, right 10rem, bottom left, center;
     background-size: cover, 14rem, 30rem, 60rem, cover;
     background-repeat: no-repeat;
