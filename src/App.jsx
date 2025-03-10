@@ -15,6 +15,7 @@ export default function App() {
   const [openDisplay, setOpenDisplay] = useState(null);
   const [selectedFile, setSelectedFile] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
+  const [randomNum, setrandomNum] = useState(0);
 
   const [showContainer, setShowContainer] = useState(true);
 
@@ -22,6 +23,13 @@ export default function App() {
     console.log("clicked");
     fname && email !== "" ? setOpenDisplay(!openDisplay) : "";
     fname && email !== "" ? setShowContainer(!showContainer) : "";
+
+    setrandomNum(
+      Array(5)
+        .fill()
+        .map(() => Math.floor(Math.floor(Math.random() * 100)))
+    );
+    console.log(randomNum);
   }
   function validateEmail(email) {
     const emailRegex = /^[a-zA-z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -161,6 +169,7 @@ export default function App() {
           github={github}
           selectedFile={selectedFile}
           imageUrl={imageUrl}
+          randomNum={randomNum}
         />
       )}
 

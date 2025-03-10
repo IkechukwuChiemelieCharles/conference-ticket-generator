@@ -268,7 +268,7 @@ const Form = ({
                 d="M8.004 10.462V7.596M8 5.569v-.042"
               />
             </svg>{" "}
-            Github Axxount ID is required
+            Github Account ID is required
           </span>
         )}
       </div>

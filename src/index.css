@@ -281,6 +281,7 @@ input::placeholder {
   justify-content: space-between;
   align-items: start;
   flex-direction: column;
+  position: relative;
 }
 
 .logoXdate {
@@ -390,10 +391,16 @@ input::placeholder {
   color: hsl(228, 45%, 44%);
 }
 
-@media screen and (min-width: 1024px) {
-  body {
-  }
+.randomNum {
+  font-size: 2rem;
+  position: absolute;
+  right: -2rem;
+  top: 9rem;
+  transform: rotate(90deg);
+  color: var(--Neutral300);
+}
 
+@media screen and (min-width: 1024px) {
   .container {
     background-image: url(../public/assets/images/pattern-lines.svg),
       url(../public/assets/images/pattern-circle.svg),

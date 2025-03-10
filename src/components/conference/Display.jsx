@@ -8,6 +8,7 @@ const Display = ({
   openDisplay,
   selectedFile,
   imageUrl,
+  randomNum,
 }) => {
   return (
     <div className="display">
@@ -33,11 +34,11 @@ const Display = ({
           <div className="name">
             <h2>{fname}</h2>
             <p>
-              <img src="\assets\images\icon-github.svg" alt="" />{" "}
-              {github}
+              <img src="\assets\images\icon-github.svg" alt="" /> {github}
             </p>
           </div>
         </div>
+        <p className="randomNum">#{randomNum}</p>
       </div>
     </div>
   );
