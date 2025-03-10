@@ -340,6 +340,18 @@ input::placeholder {
   display: none;
 }
 
+.change,
+.remove {
+  background-color: rgba(255, 255, 255, 0.226);
+  color: var(--Neutral0);
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+}
+.removeXchange .remove {
+  text-decoration: underline;
+}
 .uploadedImgXchange {
   display: flex;
   justify-content: center;
@@ -367,9 +379,6 @@ input::placeholder {
   border-radius: 0.6rem;
   border: none;
   padding: 0.8rem;
-}
-.removeXchange .remove {
-  text-decoration: underline;
 }
 
 @media screen and (min-width: 1024px) {

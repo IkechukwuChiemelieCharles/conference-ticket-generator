@@ -103,10 +103,54 @@ export default function App() {
     }
   }
 
-  function handleImgChange(e) {
-    e.preventDefault();
-    setSelectedFile(e.target.files[0]);
-    setImageUrl(URL.createObjectURL(event.target.files[0]));
+  function handleImgChange(event) {
+    event.preventDefault();
+    // setSelectedFile(e.target.files[0]);
+    const file = event.target.files[0];
+
+    // setImageUrl(URL.createObjectURL(event.target.files[0]));
+
+    if (file && validateFile(file)) {
+      const url = URL.createObjectURL(file);
+      setImageUrl(url);
+    }
+  }
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+
+    const file = event.dataTransfer.files[0];
+    if (file && validateFile(file)) {
+      const url = URL.createObjectURL(file);
+      setImageUrl(url);
+    }
+  };
+
+  const [error, setError] = useState(""); // State to store error messages
+  const maxSize = 500 * 1024; // 5kb in bytes
+
+  const validateFile = (file) => {
+    if (!file) return false;
+
+    const validTypes = ["image/jpeg", "image/png"];
+
+    if (!validTypes.includes(file.type)) {
+      setError("Only JPG and PNG files are allowed.");
+      return false;
+    }
+
+    if (file.size > maxSize) {
+      setError("File size must not exceed 500KB.");
+      return false;
+    }
+
+    setError(""); // Clear any previous error
+    return true;
+  };
+
+  function removeImg() {
+    setImageUrl(null);
+    setError("");
   }
 
   return (
@@ -131,6 +175,11 @@ export default function App() {
             validateEmail={validateEmail}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
+            setImageUrl={setImageUrl}
+            removeImg={removeImg}
+            validateFile={validateFile}
+            handleDrop={handleDrop}
+            error={error}
           />
         </div>
       )}
