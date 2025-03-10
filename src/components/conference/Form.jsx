@@ -35,7 +35,10 @@ const Form = ({
             <div className="uploadCont">
               <div className="iconCont">
                 <label htmlFor="fileInput">
-                  <img src="public/assets/images/icon-upload.svg" alt="" />
+                  <img
+                    src="../public/assets/images/icon-upload.svg"
+                    alt="uploadImg"
+                  />
                 </label>
               </div>
 
@@ -76,7 +79,7 @@ const Form = ({
           )}
         </div>
         <span className="info">
-          <img src="public/assets/images/icon-upload.svg" alt="" />
+          <img src="../public/assets/images/icon-upload.svg" alt="uploadImg" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
