@@ -60,6 +60,7 @@ body {
   width: 100vw;
   /* height: 100vh; */
   gap: 4rem;
+  min-height: 100vh;
 
   padding: 4rem 0;
 }
@@ -400,7 +401,7 @@ input::placeholder {
   color: var(--Neutral300);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .container {
     background-image: url(../public/assets/images/pattern-lines.svg),
       url(../public/assets/images/pattern-circle.svg),
@@ -417,5 +418,7 @@ input::placeholder {
     gap: 4rem;
 
     padding: 4rem 0;
+
+    /* height: 100vh; */
   }
 }
