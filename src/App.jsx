@@ -131,7 +131,8 @@ export default function App() {
   }
 
   return (
-    <div className="container" style={{ height: showContainer ? "" : "100vh" }}>
+    <div className="container" style={{}}>
+      {/* height: showContainer ? "" : "100vh" */}
       <Logo />
       {showContainer && (
         <div className="div">

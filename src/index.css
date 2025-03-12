@@ -275,14 +275,17 @@ input::placeholder {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 40rem;
+  width: 95%;
+  max-width: 40rem;
   height: 20rem;
   padding: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
   align-items: start;
   flex-direction: column;
   position: relative;
+  border: 1px solid red;
 }
 
 .logoXdate {
@@ -290,8 +293,9 @@ input::placeholder {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
   width: 60%;
+  border: 1px solid red;
 }
 .logoXdate .logo {
   align-self: flex-start;
@@ -308,8 +312,9 @@ input::placeholder {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   width: 60%;
+  border: 1px solid red;
 }
 
 .ImgXname .uploadedImg {
@@ -400,7 +405,12 @@ input::placeholder {
   transform: rotate(90deg);
   color: var(--Neutral300);
 }
-
+@media screen and (min-width: 430px) {
+  .img {
+    justify-content: space-around;
+    /* gap: 0.5rem; */
+  }
+}
 @media screen and (min-width: 768px) {
   .container {
     background-image: url(../public/assets/images/pattern-lines.svg),
